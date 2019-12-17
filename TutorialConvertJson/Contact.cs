@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace TutorialConvertJson
 {
@@ -7,7 +6,6 @@ namespace TutorialConvertJson
     {
         public Contact()
         {
-
         }
 
         public Contact(string firstName, string lastName, string emailAddress)

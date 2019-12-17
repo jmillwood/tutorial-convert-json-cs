@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Newtonsoft.Json;
 
 namespace TutorialConvertJson
 {
     public class ContactManager
     {
-
         public Contact ConvertJsonFileToObject(string filePath)
         {
             return JsonConvert.DeserializeObject<Contact>(File.ReadAllText(filePath));
@@ -32,6 +29,21 @@ namespace TutorialConvertJson
         public Contact ConvertJsonStringToObject(string json)
         {
             return JsonConvert.DeserializeObject<Contact>(json);
+        }
+
+        public string ConvertObjectToJsonString(Contact contact)
+        {
+            return JsonConvert.SerializeObject(contact);
+        }
+
+        public List<Contact> ConvertJsonStringToObjectList(string json)
+        {
+            return JsonConvert.DeserializeObject<List<Contact>>(json);
+        }
+
+        public string ConvertObjectListToJsonString(List<Contact> contacts)
+        {
+            return JsonConvert.SerializeObject(contacts);
         }
     }
 }

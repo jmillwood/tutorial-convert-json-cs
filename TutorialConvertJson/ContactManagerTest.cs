@@ -62,5 +62,36 @@ namespace TutorialConvertJson
             Contact contact = mgr.ConvertJsonStringToObject(json);
             Assert.IsNotNull(contact);
         }
+
+        [Test]
+        public void TestConvertObjectToJsonString()
+        {
+            string expected = "{\"firstName\":\"Jane\",\"lastName\":\"Doe\",\"emailAddress\":\"janedoe@somewhere.com\"}";
+            Contact contact = new Contact("Jane", "Doe", "janedoe@somewhere.com");
+            ContactManager mgr = new ContactManager();
+            string actual = mgr.ConvertObjectToJsonString(contact);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void TestConvertJsonStringToObjectList()
+        {
+            string json = "[{\"firstName\": \"John\", \"lastName\": \"Doe\", \"emailAddress\":\"johndoe@somewhere.com\"}, {\"firstName\" :\"Jane\", \"lastName\": \"Doe\", \"emailAddress\":\"janedoe@somewhere.com\"}]";
+            ContactManager mgr = new ContactManager();
+            List<Contact> contacts = mgr.ConvertJsonStringToObjectList(json);
+            Assert.AreEqual(2, contacts.Count);
+        }
+
+        [Test]
+        public void TestConvertObjectListToJsonString()
+        {
+            string expected = "[{\"firstName\":\"John\",\"lastName\":\"Doe\",\"emailAddress\":\"johndoe@somewhere.com\"},{\"firstName\":\"Jane\",\"lastName\":\"Doe\",\"emailAddress\":\"janedoe@somewhere.com\"}]";
+            List<Contact> contacts = new List<Contact>() {
+                new Contact("John", "Doe", "johndoe@somewhere.com"),
+                new Contact("Jane", "Doe", "janedoe@somewhere.com")
+            }; ContactManager mgr = new ContactManager();
+            string actual = mgr.ConvertObjectListToJsonString(contacts);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
