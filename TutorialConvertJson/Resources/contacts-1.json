@@ -1,0 +1,11 @@
+[{
+	"firstName" : "John",
+	"lastName" : "Doe",
+	"emailAddress": "johndoe@somewhere.com",
+	"mobileNumber": "111-111-1111"
+}, {
+	"firstName" : "Jane",
+	"lastName" : "Doe",
+	"emailAddress": "janedoe@somewhere.com",
+	"mobileNumber": "222-222-2222"
+}]
